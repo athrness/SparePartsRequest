@@ -1,0 +1,15 @@
+﻿@using SparePartRequest.ViewModels;
+@model IEnumerable<RoleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    
+    @foreach(RoleViewModel role in Model)
+    {
+        <div>@role.RoleName</div>
+    }
+</div>

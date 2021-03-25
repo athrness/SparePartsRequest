@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SparePartRequest.Models.Request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List Of Requests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Type of Request
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Approved
+        </th>
+        <th>
+           Rejected
+        </th>
+        <th>
+            Cancel
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestType.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsRejected)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCanceled)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.RequestId }) |
+            @*@Html.ActionLink("Approve", "Approval", new { id = item.RequestId }) |*@
+            @Html.ActionLink("Cancel", "Cancel", new { id = item.RequestId }) |
+            @*@Html.ActionLink("Reject", "Reject", new { id = item.RequestId })*@ 
+            @*@Html.ActionLink("Details", "Details", new { id = item.RequestId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.RequestId })*@
+        </td>
+    </tr>
+}
+
+</table>

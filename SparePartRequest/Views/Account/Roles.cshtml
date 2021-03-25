@@ -1,0 +1,11 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@foreach(string role in Model)
+{
+    <div>@role</div>
+    <br />
+}
